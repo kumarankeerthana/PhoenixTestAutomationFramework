@@ -13,6 +13,12 @@ import com.api.pojo.UserCredentials;
 import io.restassured.http.ContentType;
 
 public class AuthTokenProvider {
+	
+	
+
+	private AuthTokenProvider() {
+		// private constructor - restricting object creation outside the class 
+	}
 
 	public static String getToken(Roles role) throws IOException {
 
@@ -36,12 +42,15 @@ public class AuthTokenProvider {
 
 		token = given().baseUri(ConfigManager.getProperty("BASE_URI"))
 				.contentType(ContentType.JSON)
-				.body(credentials)
+				.body(credentials) //Serialization - we give a java object as input Jackson bind dependency java object to Json Path --------
 				
 				.when().post("login")
 				
 				.then()
-				.log().ifValidationFails().statusCode(200).body("message", equalTo("Success")).extract().jsonPath()
+				.log().ifValidationFails().statusCode(200).body("message", equalTo("Success"))
+				
+				//How to extract a value from the Response Payload 
+				.extract().jsonPath()
 				.getString("data.token");
 
 		return token;

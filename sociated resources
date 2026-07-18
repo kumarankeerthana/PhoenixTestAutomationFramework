@@ -1,0 +1,77 @@
+[33mcommit d4712f1a21a16d85d51b2264bd3f420c0a739b65[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: kumarankeerthana <kumarankeerthana99@gmail.com>
+Date:   Sat Jul 18 17:34:44 2026 -0400
+
+    Update ci.yml
+
+[33mcommit c5dd2d7614937f18b6b4e8a91a5ea3b195a18083[m
+Author: kumarankeerthana <kumarankeerthana99@gmail.com>
+Date:   Sat Jul 18 17:31:24 2026 -0400
+
+    Update ci.yml
+
+[33mcommit cdde3678a5bc25b3c43a8221dc8db379377466a3[m
+Author: kumarankeerthana <kumarankeerthana99@gmail.com>
+Date:   Sat Jul 18 17:28:14 2026 -0400
+
+    Update ci.yml
+    
+    Added another workflow dispatch variable called suiteXmlFile to pass the xml file to the maven command
+
+[33mcommit b0f5b5a80bcfccb14c470811c64982750e11edc8[m
+Author: kumarankeerthana <kumarankeerthana99@gmail.com>
+Date:   Sat Jul 18 17:22:32 2026 -0400
+
+    Update ci.yml
+    
+    Added workfloe_dispatch section
+    parametrized Environment
+
+[33mcommit a238e02b52230187df4f42b45450c5697d5583d9[m
+Author: kumarankeerthana <kumarankeerthana99@gmail.com>
+Date:   Sat Jul 18 16:55:10 2026 -0400
+
+    Update ci.yml
+
+[33mcommit 9efc41b1b6e187be9072861a61341b8a7d972bb8[m
+Author: kumarankeerthana <kumarankeerthana99@gmail.com>
+Date:   Sat Jul 18 15:35:24 2026 -0400
+
+    Create ci.yml
+
+[33mcommit c05ece059c8729cc446ed4f10be1787b3bb59064[m
+Author: Keerthana <kumarankeerthana99@gmail.com>
+Date:   Sat Jul 18 14:20:22 2026 -0400
+
+    created Testng File for Inwarranty flow execution
+    
+    Pom.xml : Added mavan surefire plugin and configured to run test using
+    testng.xml
+
+[33mcommit 41dba9c54bb7d1d52b2a94d624ab4f5139960756[m
+Author: Keerthana <kumarankeerthana99@gmail.com>
+Date:   Sat Jul 18 13:45:25 2026 -0400
+
+    Requirement 3:
+    
+    Created Enum for Roles
+    
+    Created Dynamic Authorization Token Provider - Manage token for
+    different Roles - Test case are independent
+    
+    UserDetails, Count and Master API tests - functional tests
+
+[33mcommit cde2460faede6a199d6f4ecf37245905c2dd818a[m
+Author: Keerthana <kumarankeerthana99@gmail.com>
+Date:   Fri Jul 17 18:37:39 2026 -0400
+
+    Created Config Manager Class for Managing Multiple Environments - dev,
+    qa and uat.
+    
+    Updated POM.XML - java 14 for maven source and target
+
+[33mcommit 33c09a109fa1fb8878d8de64b96756c2e58c8b40[m
+Author: Keerthana <kumarankeerthana99@gmail.com>
+Date:   Fri Jul 17 15:23:52 2026 -0400
+
+    Base Code for my Automation Framework
