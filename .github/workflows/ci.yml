@@ -1,4 +1,4 @@
-name: Phoenix Test Automation Workflow
+name: Phoenix Test Automation Framework
 on:
   push:
     branches: [ "master" ]
