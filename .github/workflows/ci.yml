@@ -1,4 +1,4 @@
-name: Phoenix Test Automation Framework
+name: Phoenix Test Automation Framework (Rest Assured)
 on:
   push:
     branches: [ "master" ]
