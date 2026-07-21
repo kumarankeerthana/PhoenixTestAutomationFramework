@@ -6,6 +6,8 @@ import java.io.IOException;
 import static org.hamcrest.Matchers.*;
 import org.testng.annotations.Test;
 
+import com.api.utils.SpecUtil;
+
 import io.restassured.module.jsv.JsonSchemaValidator;
 
 import static com.api.constants.Roles.*;
@@ -20,19 +22,12 @@ public class MasterAPITest {
 	@Test
 	public void masterAPITest() throws IOException {
 		
-		given().baseUri(getProperty("BASE_URI"))
-		.contentType(JSON)
-		.header("Authorization",getToken(FD))
-		.log().uri()
-		.log().method()
-		.log().headers()
+		given().spec(SpecUtil.requestSpecWithAuth(FD))
 		
 		.when().post("master")  //Default content type added by Rest Assured is url-formed 
 		
 		
-		.then().log().all()
-		.statusCode(200)
-		.time(lessThan(6000L))
+		.then().spec(SpecUtil.responseSpec_OK())
 		.body("message", equalTo("Success"))
 		.body("data", notNullValue())
 		.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("response-schema/MasterAPIFDSchema.json"))
@@ -49,17 +44,12 @@ public class MasterAPITest {
 	@Test
 	public void masterAPI_MissingToken() throws IOException  {
 		
-		given().baseUri(getProperty("BASE_URI"))
-		.contentType(JSON)
-		.log().uri()
-		.log().method()
-		.log().headers()
+		given().spec(SpecUtil.requestSpec())
 		
 		.when().post("master")  //Default content type added by Rest Assured is url-formed 
 		
 		
-		.then().log().all()
-		.statusCode(401);
+		.then().spec(SpecUtil.responseSpec_TEXT(401));
 		
 	}
 

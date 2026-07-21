@@ -3,6 +3,8 @@ package com.api.tests;
 import static org.hamcrest.Matchers.*;
 import org.testng.annotations.Test;
 
+import com.api.utils.SpecUtil;
+
 import static com.api.constants.Roles.*;
 import static com.api.utils.AuthTokenProvider.*;
 
@@ -21,18 +23,18 @@ public class CountAPITest {
 	@Test
 	public void countAPITest() throws IOException {
 
-		given().baseUri(getProperty("BASE_URI")).header(new Header("Authorization", getToken(FD))).contentType(JSON)
-				.log().uri().log().method().log().headers()
+		given().spec(SpecUtil.requestSpecWithAuth(FD))
 
 				.when().get("dashboard/count")
 
-				.then().log().all().statusCode(200).body("message", equalTo("Success")).body("data", notNullValue())
+				.then()
+				.spec(SpecUtil.responseSpec_OK())
+				.body("message", equalTo("Success")).body("data", notNullValue())
 				.body("data.size()", equalTo(3)).body("data.count", everyItem(greaterThanOrEqualTo(0)))
 				.body("data.label", everyItem(not(blankOrNullString())))
 				.body("data.key", containsInAnyOrder("pending_for_delivery", "created_today", "pending_fst_assignment"))
 				.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("response-schema/CountAPIFDSchema.json"))
-				.time(lessThan(6000L))
-
+				
 		;
 
 	}
@@ -40,12 +42,11 @@ public class CountAPITest {
 	@Test
 	public void countAPITest_MissingAuthtoken() throws IOException {
 
-		given().baseUri(getProperty("BASE_URI")).log().uri().log().method().log().headers().and()
+		given().spec(SpecUtil.requestSpec())
 
 				.when().get("dashboard/count")
 
-				.then().log().all().statusCode(401);
-
+				.then().spec(SpecUtil.responseSpec_TEXT(401));
 	}
 
 }
