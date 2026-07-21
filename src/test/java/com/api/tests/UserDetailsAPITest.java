@@ -7,6 +7,8 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
+import com.api.utils.SpecUtil;
+
 import static com.api.constants.Roles.*;
 
 import static com.api.utils.AuthTokenProvider.*;
@@ -26,21 +28,13 @@ public class UserDetailsAPITest {
 		
 		Header authHeader = new Header("Authorization", getToken(SUP));
 		
-		given().baseUri(getProperty("BASE_URI"))
-		.and()
+		given().spec(SpecUtil.requestSpecWithAuth(FD))
 		.header(authHeader)
-		.accept(ANY)
-		.log().uri()  
-		.log().headers()
-		.log().method()
-		.log().body()
+		
 		
 		.when().get("userdetails")
 		
-		.then()
-		.log().all()
-		.statusCode(200)
-		.time(lessThan(1500L))
+		.then().spec(SpecUtil.responseSpec_OK())
 		.body("message", equalTo("Success"))
 		//.body("data.id", equalTo(4))
 		.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("response-schema/UserDetailsFDSchema.json"));
