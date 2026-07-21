@@ -1,11 +1,10 @@
 package com.api.utils;
 import com.api.constants.*;
+import com.api.request.model.UserCredentials;
 
 import java.io.IOException;
 
 import org.hamcrest.Matchers;
-
-import com.api.pojo.UserCredentials;
 
 import static com.api.utils.ConfigManager.*;
 

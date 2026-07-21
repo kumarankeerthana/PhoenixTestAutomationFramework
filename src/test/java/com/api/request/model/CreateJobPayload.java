@@ -1,5 +1,5 @@
 
-package com.api.pojo;
+package com.api.request.model;
 
 import java.util.List;
 

@@ -10,11 +10,12 @@ import java.util.List;
 import static org.hamcrest.Matchers.*;
 import org.testng.annotations.Test;
 
-import com.api.pojo.CreateJobPayload;
-import com.api.pojo.Customer;
-import com.api.pojo.CustomerAddress;
-import com.api.pojo.CustomerProduct;
-import com.api.pojo.Problems;
+import com.api.request.model.CreateJobPayload;
+import com.api.request.model.Customer;
+import com.api.request.model.CustomerAddress;
+import com.api.request.model.CustomerProduct;
+import com.api.request.model.Problems;
+import static com.api.utils.DayTimeUtil.*;
 import com.api.utils.SpecUtil;
 
 import io.restassured.module.jsv.JsonSchemaValidator;
@@ -28,7 +29,7 @@ public class CreateJobAPITest {
 		//createjobpayload 
 		Customer customer = new Customer("Keerthana", "Kumaran", "9381011566", "9381011566 ", "kitty@gmail.com","kitty@gmail.com");
 		CustomerAddress customeraddress = new CustomerAddress("1673", "Kitty Residence", "St.clair ave ", "freshco", "windsor", "600044", "India", "TamilNadu");
-		CustomerProduct customerproduct = new CustomerProduct("2026-06-01T04:00:00.000Z", "78786078157946", "78786078157946", "78786078157946", "2026-06-01T04:00:00.000Z", 1, 1);
+		CustomerProduct customerproduct = new CustomerProduct(getTimeWithDaysAgo(10), "78726078157946", "78726078157946", "78726078157946", getTimeWithDaysAgo(10), 1, 1);
 		Problems problems = new Problems(1, "Battery Issue");
 		List<Problems> problemsList = new ArrayList<>();
 		problemsList.add(problems);
