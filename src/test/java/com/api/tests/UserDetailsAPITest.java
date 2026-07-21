@@ -1,43 +1,38 @@
 package com.api.tests;
-import static io.restassured.RestAssured.*;
-
-import static org.hamcrest.Matchers.*;
+import static com.api.constants.Roles.FD;
+import static com.api.constants.Roles.SUP;
+import static com.api.utils.AuthTokenProvider.getToken;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import com.api.utils.SpecUtil;
-
-import static com.api.constants.Roles.*;
-
-import static com.api.utils.AuthTokenProvider.*;
+import static com.api.utils.SpecUtil.*;
 
 import io.restassured.http.Header;
-import io.restassured.module.jsv.JsonSchemaValidator;
-
-import static io.restassured.http.ContentType.*;
-import static com.api.utils.ConfigManager.*;
+import static io.restassured.module.jsv.JsonSchemaValidator.*;
 
 
 public class UserDetailsAPITest {
 	
 	
-	@Test
+	@Test(description ="Verify if Userdetails api response is shown correctly", groups = {"api","smoke","regression"})
 	public void userDetailsAPITest() throws IOException {
 		
 		Header authHeader = new Header("Authorization", getToken(SUP));
 		
-		given().spec(SpecUtil.requestSpecWithAuth(FD))
+		given().spec(requestSpecWithAuth(FD))
 		.header(authHeader)
 		
 		
 		.when().get("userdetails")
 		
-		.then().spec(SpecUtil.responseSpec_OK())
+		.then().spec(responseSpec_OK())
 		.body("message", equalTo("Success"))
 		//.body("data.id", equalTo(4))
-		.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("response-schema/UserDetailsFDSchema.json"));
+		.body(matchesJsonSchemaInClasspath("response-schema/UserDetailsFDSchema.json"));
 		
 	}
 

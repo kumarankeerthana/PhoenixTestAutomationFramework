@@ -1,36 +1,34 @@
 package com.api.tests;
-import static io.restassured.RestAssured.*;
+import static com.api.constants.Roles.FD;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.everyItem;
+import static org.hamcrest.Matchers.greaterThanOrEqualTo;
+import static org.hamcrest.Matchers.hasKey;
+import static org.hamcrest.Matchers.notNullValue;
 
 import java.io.IOException;
 
-import static org.hamcrest.Matchers.*;
 import org.testng.annotations.Test;
 
-import com.api.utils.SpecUtil;
+import static com.api.utils.SpecUtil.*;
 
-import io.restassured.module.jsv.JsonSchemaValidator;
-
-import static com.api.constants.Roles.*;
-import static com.api.utils.AuthTokenProvider.*;
-
-import static io.restassured.http.ContentType.*;
-
-import static com.api.utils.ConfigManager.*;
+import static io.restassured.module.jsv.JsonSchemaValidator.*;
 
 public class MasterAPITest {
 	
-	@Test
+	@Test(description = " Verify if master api response is correct" , groups = {"api","smoke","regression"})
 	public void masterAPITest() throws IOException {
 		
-		given().spec(SpecUtil.requestSpecWithAuth(FD))
+		given().spec(requestSpecWithAuth(FD))
 		
 		.when().post("master")  //Default content type added by Rest Assured is url-formed 
 		
 		
-		.then().spec(SpecUtil.responseSpec_OK())
+		.then().spec(responseSpec_OK())
 		.body("message", equalTo("Success"))
 		.body("data", notNullValue())
-		.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("response-schema/MasterAPIFDSchema.json"))
+		.body(matchesJsonSchemaInClasspath("response-schema/MasterAPIFDSchema.json"))
 		.body("data", hasKey("mst_oem"))
 		.body("data", hasKey("mst_model"))
 		.body("$", hasKey("message"))
@@ -41,15 +39,15 @@ public class MasterAPITest {
 		.body("data.mst_oem.name", everyItem(notNullValue()));
 	}
 	
-	@Test
+	@Test (description = " Verifying if master api status code is 401 with invalid token", groups = {"api","smoke","regression"})
 	public void masterAPI_MissingToken() throws IOException  {
 		
-		given().spec(SpecUtil.requestSpec())
+		given().spec(requestSpec())
 		
 		.when().post("master")  //Default content type added by Rest Assured is url-formed 
 		
 		
-		.then().spec(SpecUtil.responseSpec_TEXT(401));
+		.then().spec(responseSpec_TEXT(401));
 		
 	}
 

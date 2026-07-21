@@ -9,7 +9,8 @@ import static org.hamcrest.Matchers.equalTo;
 
 import java.io.IOException;
 import com.api.constants.Roles;
-import com.api.pojo.UserCredentials;
+import com.api.request.model.UserCredentials;
+
 import io.restassured.http.ContentType;
 
 public class AuthTokenProvider {
