@@ -1,6 +1,5 @@
-package com.demo.csv;
+package com.api.utils;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
@@ -8,13 +7,22 @@ import java.util.List;
 import com.opencsv.CSVReader;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
-import com.pojo.UserBean;
+import com.api.dataproviders.bean.*;
 
-public class ReadCsvFile2_MaptoPOJO {
+public class CsvReaderUtil {
 
-	public static void main(String[] args) throws IOException, Exception {
+	/*
+	 * constructor is private static methods JOB: - HELPS TO READ CSV AND MAP IT TO
+	 * A BEAN
+	 */
+	private CsvReaderUtil() {
+		//prevent object creation
 
-		InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("TestData/LoginCreds.csv");
+	}
+
+	public static void loadCsv(String pathOfCSVFile) {
+
+		InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(pathOfCSVFile);
 		InputStreamReader streamreader = new InputStreamReader(is);
 		CSVReader reader = new CSVReader(streamreader); // needs a reader object
 
@@ -24,5 +32,5 @@ public class ReadCsvFile2_MaptoPOJO {
 		List<UserBean> userList = csvToBean.parse();
 		System.out.println(userList.get(0).getUsername());
 	}
-}
 
+}
