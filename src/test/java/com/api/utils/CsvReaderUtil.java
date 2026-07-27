@@ -8,7 +8,6 @@ import java.util.List;
 import com.opencsv.CSVReader;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
-import com.api.dataproviders.bean.*;
 
 public class CsvReaderUtil {
 
@@ -21,17 +20,19 @@ public class CsvReaderUtil {
 
 	}
 
-	public static Iterator<UserBean> loadCsv(String pathOfCSVFile) {
+	public static <T> Iterator<T> loadCsv(String pathOfCSVFile, Class <T> bean) {
 
 		InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(pathOfCSVFile);
 		InputStreamReader streamreader = new InputStreamReader(is);
 		CSVReader reader = new CSVReader(streamreader); // needs a reader object
 
-		CsvToBean<UserBean> csvToBean = new CsvToBeanBuilder(reader).withType(UserBean.class).withIgnoreEmptyLine(true)
+		CsvToBean<T> csvToBean = new CsvToBeanBuilder(reader).
+				withType(bean).
+				withIgnoreEmptyLine(true)
 				.build();
 
-		List<UserBean> userList = csvToBean.parse();
-		return userList.iterator();
+		List<T> list =  csvToBean.parse();
+		return list.iterator();
 	}
 
 }
