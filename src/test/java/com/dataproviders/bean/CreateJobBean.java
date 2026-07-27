@@ -1,4 +1,4 @@
-package com.api.dataproviders.bean;
+package com.dataproviders.bean;
 
 import com.opencsv.bean.CsvBindByName;
 

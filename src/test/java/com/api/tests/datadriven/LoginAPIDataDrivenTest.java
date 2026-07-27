@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import com.api.dataproviders.bean.UserBean;
+import com.dataproviders.bean.UserBean;
 
 import io.restassured.module.jsv.JsonSchemaValidator;
 

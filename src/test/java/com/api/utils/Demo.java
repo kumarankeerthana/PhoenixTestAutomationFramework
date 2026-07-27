@@ -3,8 +3,8 @@ package com.api.utils;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import com.api.dataproviders.bean.CreateJobBean;
 import com.api.request.model.CreateJobPayload;
+import com.dataproviders.bean.CreateJobBean;
 
 public class Demo {
 

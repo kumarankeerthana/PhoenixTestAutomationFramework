@@ -6,11 +6,11 @@ import java.util.List;
 
 import org.testng.annotations.DataProvider;
 
-import com.api.dataproviders.bean.CreateJobBean;
-import com.api.dataproviders.bean.UserBean;
 import com.api.request.model.CreateJobPayload;
 import com.api.utils.CreateJobBeanMapper;
 import com.api.utils.CsvReaderUtil;
+import com.dataproviders.bean.CreateJobBean;
+import com.dataproviders.bean.UserBean;
 
 public class DataProviderUtils {
 
