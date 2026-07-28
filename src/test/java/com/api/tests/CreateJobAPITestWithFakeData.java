@@ -1,4 +1,4 @@
-package com.api.tests.datadriven;
+package com.api.tests;
 
 import static com.api.constants.Roles.FD;
 import static com.api.utils.SpecUtil.requestSpecWithAuth;
@@ -10,26 +10,45 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.startsWith;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Random;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.api.request.model.CreateJobPayload;
+import com.api.request.model.Customer;
+import com.api.request.model.CustomerAddress;
+import com.api.request.model.CustomerProduct;
+import com.api.request.model.Problems;
+import com.api.utils.DayTimeUtil;
+import com.api.utils.FakerDataGenerator;
+import com.github.javafaker.Faker;
 
 
 
-public class CreateJobAPIDataDrivenTest {
+public class CreateJobAPITestWithFakeData{
 	
 	
+	private CreateJobPayload createjobPayload;
 	
 	
-	
+	@BeforeMethod(description = " Setup for create job api ", groups = { "api", "smoke", "regression" })
+	public void setup() {
+		
+		createjobPayload = FakerDataGenerator.generateFakeCreateJobData();
+		
+
+		
+	}
 
 	@Test(description = " Verify if create job  api response is correct for inwarranty flow ", groups = { "api",
-			"datadriven", "regression","csv" }, dataProviderClass = com.dataproviders.DataProviderUtils.class,
-			dataProvider = "CreateJobDataProvider")
-	public void createJobAPITest(CreateJobPayload createjobpayload) throws IOException {
+			"smoke", "regression" })
+	public void createJobAPITest() throws IOException {
 
-		given().spec(requestSpecWithAuth(FD, createjobpayload)).and().when().post("/job/create").then()
+		given().spec(requestSpecWithAuth(FD, createjobPayload)).and().when().post("/job/create").then()
 				.spec(responseSpec_JSON(200)).body("message", equalTo("Job created successfully. "))
 				.body("data", notNullValue()).body("data.mst_service_location_id", equalTo(1))
 				.body("data.job_number", startsWith("JOB_"))
@@ -38,4 +57,3 @@ public class CreateJobAPIDataDrivenTest {
 	}
 
 }
-  

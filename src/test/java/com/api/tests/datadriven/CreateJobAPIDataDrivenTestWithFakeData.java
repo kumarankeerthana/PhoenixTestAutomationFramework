@@ -17,7 +17,7 @@ import com.api.request.model.CreateJobPayload;
 
 
 
-public class CreateJobAPIDataDrivenTest {
+public class CreateJobAPIDataDrivenTestWithFakeData {
 	
 	
 	
@@ -25,8 +25,8 @@ public class CreateJobAPIDataDrivenTest {
 	
 
 	@Test(description = " Verify if create job  api response is correct for inwarranty flow ", groups = { "api",
-			"datadriven", "regression","csv" }, dataProviderClass = com.dataproviders.DataProviderUtils.class,
-			dataProvider = "CreateJobDataProvider")
+			"datadriven", "regression", "faker" }, dataProviderClass = com.dataproviders.DataProviderUtils.class,
+			dataProvider = "CreateJobAPIFakerDataProvider")
 	public void createJobAPITest(CreateJobPayload createjobpayload) throws IOException {
 
 		given().spec(requestSpecWithAuth(FD, createjobpayload)).and().when().post("/job/create").then()
