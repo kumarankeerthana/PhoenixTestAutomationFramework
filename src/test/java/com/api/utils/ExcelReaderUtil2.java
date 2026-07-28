@@ -2,20 +2,21 @@ package com.api.utils;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.api.request.model.UserCredentials;
+import com.poiji.bind.Poiji;
 
 public class ExcelReaderUtil2 {
+	
+	private ExcelReaderUtil2() {
+		
+	}
 
-	public static Iterator<UserCredentials> loadTestData(String filepath) {
+	public static <T> Iterator<T> loadTestData(String filepath, String sheetname, Class<T> clazz) {
 
 		InputStream is = Thread.currentThread().getContextClassLoader()
 				.getResourceAsStream(filepath);
@@ -26,10 +27,31 @@ public class ExcelReaderUtil2 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		XSSFSheet mysheet = myWorkBook.getSheet("LoginTestData");
+		XSSFSheet mysheet = myWorkBook.getSheet(sheetname);
+		
+		List<T> dataList = Poiji.fromExcel(mysheet, clazz);
+		return dataList.iterator();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
-		// Read datae login test data -->store it in an arraylist <UserCredentials>
-		// know the index of our instance variables
+		/* Read datae login test data -->store it in an arraylist <UserCredentials>
+		 know the index of our instance variables
 
 		XSSFRow headerRow = mysheet.getRow(0);
 
@@ -63,7 +85,7 @@ public class ExcelReaderUtil2 {
 		}
 		return userList.iterator();
 		
-		
+		*/
 		
 	}
 

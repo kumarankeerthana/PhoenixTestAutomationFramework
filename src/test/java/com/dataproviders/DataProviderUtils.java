@@ -35,8 +35,8 @@ public class DataProviderUtils {
 	}
 	
 	@DataProvider(name = "LoginAPIExcelDataProvider", parallel = true)
-	public static Iterator<UserCredentials> loginAPIExcelDataProvider() {
-		return ExcelReaderUtil2.loadTestData("TestData/PhoenixTestData.xlsx");
+	public static Iterator<UserBean> loginAPIExcelDataProvider() {
+		return ExcelReaderUtil2.loadTestData("TestData/PhoenixTestData.xlsx", "LoginTestData", UserBean.class);
 	}
 
 	@DataProvider(name = "CreateJobDataProvider", parallel = true)

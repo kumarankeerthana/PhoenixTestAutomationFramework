@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import com.api.request.model.UserCredentials;
+import com.dataproviders.bean.UserBean;
 
 import io.restassured.module.jsv.JsonSchemaValidator;
 
@@ -21,7 +21,7 @@ public class LoginAPIExcelDataDrivenTest {
 	@Test(description = "Verify if login api is working for User iamfd", groups = { "api", "regression", "datadriven" },
 			dataProviderClass = com.dataproviders.DataProviderUtils.class, 
 			dataProvider = "LoginAPIExcelDataProvider")
-	public void loginAPITest(UserCredentials user) throws IOException {
+	public void loginAPITest(UserBean user) throws IOException {
 
 		given().spec(requestSpec(user)).and()
 
