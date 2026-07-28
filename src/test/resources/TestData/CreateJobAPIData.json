@@ -1,0 +1,153 @@
+[
+
+{
+    "mst_service_location_id": 0,
+    "mst_platform_id": 2,
+    "mst_warrenty_status_id": 1,
+    "mst_oem_id": 1,
+    "customer": {
+        "first_name": "Eino",
+        "last_name": "Cartwright",
+        "mobile_number": "922-352-1569",
+        "mobile_number_alt": "",
+        "email_id": "Emanuel_Haag@gmail.com",
+        "email_id_alt": ""
+    },
+    "customer_address": {
+        "flat_number": "175",
+        "apartment_name": "Kitty residence ",
+        "street_name": "st.clair ave",
+        "landmark": "freshco",
+        "area": "chromepet",
+        "pincode": "600044",
+        "country": "India",
+        "state": "Tamil Nadu"
+    },
+    "customer_product": {
+        "dop": "2026-06-01T04:00:00.000Z",
+        "serial_number": "29948639769877",
+        "imei1": "29948639769877",
+        "imei2": "29948639769877",
+        "popurl": "2026-06-01T04:00:00.000Z",
+        "product_id": 1,
+        "mst_model_id": 1
+    },
+    "problems": [
+        {
+            "id": 1,
+            "remark": "Battery Issue"
+        },
+		{
+		           "id": 2,
+		           "remark": "SmartPhone Running Slow"
+		       }
+    ]
+},
+
+
+{
+    "mst_service_location_id": 0,
+    "mst_platform_id": 2,
+    "mst_warrenty_status_id": 1,
+    "mst_oem_id": 1,
+    "customer": {
+        "first_name": "Eino",
+        "last_name": "Cartwright",
+        "mobile_number": "922-352-1569",
+        "mobile_number_alt": "",
+        "email_id": "Emanuel_Haag@gmail.com",
+        "email_id_alt": ""
+    },
+    "customer_address": {
+        "flat_number": "175",
+        "apartment_name": "Kitty residence ",
+        "street_name": "st.clair ave",
+        "landmark": "freshco",
+        "area": "chromepet",
+        "pincode": "600044",
+        "country": "India",
+        "state": "Tamil Nadu"
+    },
+    "customer_product": {
+        "dop": "2026-06-01T04:00:00.000Z",
+        "serial_number": "69748639769557",
+        "imei1": "69748639769557",
+        "imei2": "69748639769557",
+        "popurl": "2026-06-01T04:00:00.000Z",
+        "product_id": 1,
+        "mst_model_id": 1
+    },
+    "problems": [
+        {
+            "id": 1,
+            "remark": "Battery Issue"
+        },
+		{
+		           "id": 2,
+		           "remark": "SmartPhone Running Slow"
+		       },
+			   {
+			   		           "id": 3,
+			   		           "remark": "SmartPhone Not Responding"
+			   		       }
+    ]
+},
+
+
+{
+    "mst_service_location_id": 0,
+    "mst_platform_id": 2,
+    "mst_warrenty_status_id": 1,
+    "mst_oem_id": 1,
+    "customer": {
+        "first_name": "Eino",
+        "last_name": "Cartwright",
+        "mobile_number": "922-352-1569",
+        "mobile_number_alt": "",
+        "email_id": "Emanuel_Haag@gmail.com",
+        "email_id_alt": ""
+    },
+    "customer_address": {
+        "flat_number": "175",
+        "apartment_name": "Kitty residence ",
+        "street_name": "st.clair ave",
+        "landmark": "freshco",
+        "area": "chromepet",
+        "pincode": "600044",
+        "country": "India",
+        "state": "Tamil Nadu"
+    },
+    "customer_product": {
+        "dop": "2026-06-01T04:00:00.000Z",
+        "serial_number": "19758639769877",
+        "imei1": "19758639769877",
+        "imei2": "19758639769877",
+        "popurl": "2026-06-01T04:00:00.000Z",
+        "product_id": 1,
+        "mst_model_id": 1
+    },
+    "problems": [
+        {
+            "id": 1,
+            "remark": "Battery Issue"
+        },
+		{
+		           "id": 2,
+		           "remark": "SmartPhone Running Slow"
+		       }
+    ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+]

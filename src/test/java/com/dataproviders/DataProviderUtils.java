@@ -52,6 +52,11 @@ public class DataProviderUtils {
 	}
 	
 	
+	@DataProvider(name = "CreateJobAPIJSONDataProvider", parallel = true)
+	public static Iterator<CreateJobPayload> createJobAPIJSONDataProvider() {
+		return JsonReaderUtil.loadJSON("TestData/CreateJobAPIData.json", CreateJobPayload[].class);
+	}
+	
 	@DataProvider(name = "CreateJobAPIFakerDataProvider", parallel = true)
 	public static Iterator<CreateJobPayload> createJobFakeDataProvider(){ 
 		String fakerCount = System.getProperty("fakerCount", "5");
