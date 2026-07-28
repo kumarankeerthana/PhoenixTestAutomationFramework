@@ -10,6 +10,7 @@ import com.api.request.model.CreateJobPayload;
 import com.api.request.model.UserCredentials;
 import com.api.utils.CreateJobBeanMapper;
 import com.api.utils.CsvReaderUtil;
+import com.api.utils.ExcelReaderUtil2;
 import com.api.utils.FakerDataGenerator;
 import com.api.utils.JsonReaderUtil;
 import com.dataproviders.bean.CreateJobBean;
@@ -31,6 +32,11 @@ public class DataProviderUtils {
 	@DataProvider(name = "LoginAPIJSONDataProvider", parallel = true)
 	public static Iterator<UserCredentials> loginAPIJSONDataProvider() {
 		return JsonReaderUtil.loadJSON("TestData/LoginCredsJSON.json.json", UserCredentials[].class);
+	}
+	
+	@DataProvider(name = "LoginAPIExcelDataProvider", parallel = true)
+	public static Iterator<UserCredentials> loginAPIExcelDataProvider() {
+		return ExcelReaderUtil2.loadTestData("TestData/PhoenixTestData.xlsx");
 	}
 
 	@DataProvider(name = "CreateJobDataProvider", parallel = true)
