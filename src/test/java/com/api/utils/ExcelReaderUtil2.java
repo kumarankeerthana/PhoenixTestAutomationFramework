@@ -56,7 +56,7 @@ public class ExcelReaderUtil2 {
 		XSSFRow headerRow = mysheet.getRow(0);
 
 		int userNameIndex = -1;
-		int passwordIndex = -1;
+		int passwordIndex = -1; //assuming they are not present
 
 		for (Cell cell : headerRow) {
 
@@ -74,7 +74,7 @@ public class ExcelReaderUtil2 {
 		UserCredentials credentials = null;
 		List<UserCredentials> userList = new ArrayList<UserCredentials>();
 
-		for (int rowIndex = 1; rowIndex <= lastRowIndex; rowIndex++) {
+		for (int rowIndex = 1; rowIndex <= lastRowIndex; rowIndex++) { //row index starts from 1 because 0 is header
 
 			rowdata = mysheet.getRow(rowIndex);
 			credentials = new UserCredentials(rowdata.getCell(userNameIndex).toString(),
