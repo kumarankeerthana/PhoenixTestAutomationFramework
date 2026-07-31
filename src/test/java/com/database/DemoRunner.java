@@ -7,11 +7,11 @@ public class DemoRunner {
 
 	public static void main(String[] args) throws SQLException, IOException {
 		
-		DatabaseManager.createConnection();
+		DatabaseManagerOLD.createConnection();
 		long start_time = System.currentTimeMillis();
 		
 	for(int i=1;i<400;i++) {
-		DatabaseManager.createConnection();
+		DatabaseManagerOLD.createConnection();
 		
 	}
 		
