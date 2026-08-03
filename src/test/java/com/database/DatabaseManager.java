@@ -12,7 +12,7 @@ public class DatabaseManager {
 
 	private static final String DB_URL = EnvUtil.getValue("DB_URL");
 	
-	private static final String DB_USER_NAME = EnvUtil.getValue("DB_USERNAME");
+	private static final String DB_USERNAME = EnvUtil.getValue("DB_USERNAME");
 	private static final String DB_PASSWORD = EnvUtil.getValue("DB_PASSWORD");
 	private static HikariConfig hikariconfig;
 	private static volatile HikariDataSource hikariDataSource = null;
@@ -37,7 +37,7 @@ public class DatabaseManager {
 					hikariconfig = new HikariConfig();
 					
 					hikariconfig.setJdbcUrl(DB_URL);
-					hikariconfig.setUsername(DB_USER_NAME);
+					hikariconfig.setUsername(DB_USERNAME);
 					hikariconfig.setPassword(DB_PASSWORD);
 					hikariconfig.setMaximumPoolSize(MAXIMUM_POOL_SIZE);
 					hikariconfig.setMinimumIdle(MINIMUM_IDLE_COUNT);
