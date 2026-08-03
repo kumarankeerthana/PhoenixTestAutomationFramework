@@ -32,7 +32,7 @@ public class DataProviderUtils {
 	
 	@DataProvider(name = "LoginAPIJSONDataProvider", parallel = true)
 	public static Iterator<UserCredentials> loginAPIJSONDataProvider() {
-		return JsonReaderUtil.loadJSON("TestData/LoginCredsJSON.json.json", UserCredentials[].class);
+		return JsonReaderUtil.loadJSON("TestData/LoginCredsJSON.json", UserCredentials[].class);
 	}
 	
 	@DataProvider(name = "LoginAPIExcelDataProvider", parallel = true)

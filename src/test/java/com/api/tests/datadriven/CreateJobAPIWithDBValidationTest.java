@@ -1,4 +1,4 @@
-package com.api.tests;
+package com.api.tests.datadriven;
 
 import static com.api.constants.Roles.FD;
 import static com.api.utils.DayTimeUtil.getTimeWithDaysAgo;
@@ -61,8 +61,8 @@ public class CreateJobAPIWithDBValidationTest {
 		 customeraddress = new CustomerAddress("1673", "Kitty Residence", "St.clair ave ", "freshco",
 				"windsor", "600044", "India", "TamilNadu");
 
-		 customerproduct = new CustomerProduct(getTimeWithDaysAgo(10), "12589077155998",
-				"12589077155998", "12589077155998", getTimeWithDaysAgo(10), Product.NEXUS_2.getcode(),
+		 customerproduct = new CustomerProduct(getTimeWithDaysAgo(10), "18589077155991",
+				"18589077155991", "18589077155991", getTimeWithDaysAgo(10), Product.NEXUS_2.getcode(),
 				Model.NEXUS_2_BLUE.getCode());
 
 		problems = new Problems(Problem.SMARTPHONE_IS_RUNNING_SLOW.getCode(), "Battery Issue");
